@@ -1,0 +1,3 @@
+#!/bin/bash
+mdadm --misc --test /dev/md127 > /dev/null
+echo "mdadm,md_array=md127 state=$?"
