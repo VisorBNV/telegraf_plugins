@@ -32,4 +32,6 @@ params = (
 )
 result = json.loads(requests.get('https://postmaster.mail.ru/ext-api/stat-list/', headers=header, params=params).text)
 # printing output with InfluxDB format
-print('mail_ru,domain='+result["data"][0]["domain"]+' sent='+str(result["data"][0]["messages_sent"])+',spam='+str(result["data"][0]["spam"])+',probably_spam='+str(result["data"][0]["probably_spam"]))
+print('mail_ru,domain='+result["data"][0]["domain"]+' sent='+str(result["data"][0]["messages_sent"])+',spam='+str(result["data"][0]["spam"])+
+        ',probably_spam='+str(result["data"][0]["probably_spam"])+',spam_percent='+str("%2.2f"% result["data"][0]["spam_percent"])+
+        ',probably_spam_percent='+str("%2.2f"% result["data"][0]["probably_spam_percent"]))
